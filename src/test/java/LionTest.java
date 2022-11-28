@@ -12,7 +12,7 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 
 @RunWith(Parameterized.class)
-public class LionTest{
+public class LionTest {
 
     private final String sexSelection;
     private final boolean expected;
@@ -26,11 +26,12 @@ public class LionTest{
     public void initMocks() throws Exception {
         MockitoAnnotations.openMocks(this).close();
     }
+
     Feline feline = Mockito.mock(Feline.class);
 
-    @Parameterized.Parameters
-    public static Object[] getGenderAnimal() {
-        return new Object[][] {
+    @Parameterized.Parameters(name = "gender = {0}, expectedResult = {1}}")
+    public static Object[][] getGenderAnimal() {
+        return new Object[][]{
                 {"Самец", true},
                 {"Самка", false},
         };
